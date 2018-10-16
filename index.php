@@ -111,10 +111,13 @@ elseif(isset($_GET['frapper'])) {
 
         <a href="?deconnexion=1">Deconnexion</a>
 
+
         <fieldset>
           <legend>Mes informations</legend>
           <p>Nom : <?php echo htmlspecialchars($perso->nom()); ?><br>
-            Degats : <?php echo $perso->degats() ?></p>
+            Degats : <?php echo $perso->degats() ?><br>
+            XP : <?php $perso->getXp(); echo $perso->xp(); ?><br>
+            Level : <?php echo $perso->level() ?></p>
         </fieldset>
 
 <br>
@@ -135,7 +138,8 @@ else
 {
   foreach ($persos as $unPerso)
   {
-    echo '<a href="?frapper=', $unPerso->id(), '">', htmlspecialchars($unPerso->nom()), '</a> (dégâts : ', $unPerso->degats(), ')<br />';
+    echo '<a href="?frapper=', $unPerso->id(), '">', htmlspecialchars($unPerso->nom()),
+    '</a> (dégâts : ', $unPerso->degats(), ')<br />';
   }
 }
             ?>
